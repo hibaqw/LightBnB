@@ -1,0 +1,2 @@
+select reservations.id as id, properties.title as title, reservations.start_date as start_date, properties.cost_per_night as cost_per_night  
+, avg(property_reviews.rating) from properties join reservations on properties.id = reservations.property_id join property_reviews on properties.id = property_reviews.property_id where reservations.guest_id = 1 group by reservations.id, properties.id limit 10;
